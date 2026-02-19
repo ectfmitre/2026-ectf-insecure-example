@@ -13,7 +13,7 @@ docker-nc:
 	docker build --no-cache -t build-hsm ./firmware/
 
 global.secrets:
-	@if [ -z "${GROUPS}" ]; then echo 'Must pass valid groups like:\r\n\tmake global.secrets GROUPS=1234\r\nor, if multiple groups defined:\r\n\tmake global.secrets GROUPS="1234 5678"' && false; fi
+	@if [ -z "${GROUPS}" ]; then echo 'Must pass valid groups like:\r\n\tmake global.secrets GROUPS=0x1234\r\nor, if multiple groups defined:\r\n\tmake global.secrets GROUPS="0x1234 5678"' && false; fi
 	uvx --with-editable ./ectf26_design --from ectf26_design secrets global.secrets $(GROUPS)
 
 %.hsm:
