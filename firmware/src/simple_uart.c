@@ -21,7 +21,7 @@
 UART_Regs *uart_inst[] = {UART_0_INST, UART_1_INST};
 
 UART_Regs *get_uart_handle(int uart_id) {
-    if (uart_id < 0 || uart_id > CONFIG_UART_COUNT) {
+    if (uart_id < 0 || uart_id >= CONFIG_UART_COUNT) {
         // Default on bad input is 0
         return uart_inst[0];
     }
